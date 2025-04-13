@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142.1 76.2% 36.3%;
+
+    --radius: 0.5rem;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142.1 76.2% 36.3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Custom gradients */
+  .gradient-primary {
+    @apply bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 bg-clip-text text-transparent;
+  }
+
+  .gradient-bg-primary {
+    @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900;
+  }
+
+  .gradient-bg-card {
+    @apply bg-gradient-to-br from-slate-800/80 via-slate-800/60 to-slate-800/80;
+  }
+
+  .gradient-accent {
+    @apply bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500;
+  }
+
+  .gradient-success {
+    @apply bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/10;
+  }
+
+  /* Neon glow effects */
+  .neon-glow {
+    text-shadow: 0 0 5px rgba(0, 255, 170, 0.5), 0 0 10px rgba(0, 255, 170, 0.3);
+  }
+
+  .neon-box {
+    box-shadow: 0 0 5px rgba(0, 255, 170, 0.5), 0 0 10px rgba(0, 255, 170, 0.3);
+  }
+
+  /* MonkeyType-inspired styles */
+  .monkeytype-text {
+    @apply text-slate-400 font-mono text-lg leading-relaxed;
+  }
+
+  .monkeytype-correct {
+    @apply text-emerald-400;
+  }
+
+  .monkeytype-incorrect {
+    @apply text-red-400 bg-red-900/30;
+  }
+
+  .monkeytype-cursor {
+    @apply border-r-2 border-emerald-400 animate-blink h-5 inline-block mr-0.5;
+  }
+
+  .monkeytype-button {
+    @apply bg-slate-800/50 border-slate-700/50 hover:bg-slate-700/50 transition-colors text-sm font-medium rounded-md px-3 py-1;
+  }
+
+  .monkeytype-active {
+    @apply bg-emerald-500/20 text-emerald-400 border-emerald-500/30;
+  }
+}
+
+/* Fix for inconsistent styling between preview and deployed version */
+.bg-slate-800\/50 {
+  background-color: rgba(30, 41, 59, 0.5) !important;
+}
+
+.bg-slate-700\/50 {
+  background-color: rgba(51, 65, 85, 0.5) !important;
+}
+
+.border-slate-700\/50 {
+  border-color: rgba(51, 65, 85, 0.5) !important;
+}
+
+.hover\:bg-slate-700\/50:hover {
+  background-color: rgba(51, 65, 85, 0.5) !important;
+}
+
+.hover\:border-slate-600\/80:hover {
+  border-color: rgba(71, 85, 105, 0.8) !important;
+}
+
+/* Ensure consistent card styling */
+.card {
+  @apply bg-slate-800/50 border-slate-700/50;
+}
+
+/* Ensure consistent button styling */
+.button {
+  @apply bg-slate-800/50 border-slate-700/50 hover:bg-slate-700/50;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-900 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-emerald-600/50 rounded-full hover:bg-emerald-500/70 transition-colors;
+}
